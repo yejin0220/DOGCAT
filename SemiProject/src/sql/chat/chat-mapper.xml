@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="checkChatroom">
+		SELECT CR_NO
+		FROM CHATROOM
+		WHERE (BUYER = ? OR SELLER = ?)
+		  AND (SELLER = (SELECT BOARD_WRITER
+		                FROM BOARD
+		                WHERE BOARD_NO = ?) OR BUYER = (SELECT BOARD_WRITER
+		                                                FROM BOARD
+		                                                WHERE BOARD_NO = ?))
+	</entry>
+	<entry key="insertChatroom">
+		INSERT INTO CHATROOM (CR_NO, CREATE_DATE, STATUS, SELLER, BUYER)
+		VALUES (SEQ_CNO.NEXTVAL, SYSDATE, 'Y', (SELECT BOARD_WRITER
+								                FROM BOARD
+								                WHERE BOARD_NO = ?), ?)
+	</entry>
+	
+	<entry key="insertMessageFromBuyer">
+		INSERT INTO MESSAGE(MESSAGE_NO, CREATE_DATE, CR_NO, SENDER, RECEIVER, M_CONTENT)
+		VALUES (SEQ_MNO.NEXTVAL, SYSDATE, (SELECT CR_NO 
+		                                   FROM CHATROOM
+		                                   WHERE (SELLER = (SELECT BOARD_WRITER
+		                                                   FROM BOARD
+		                                                   WHERE BOARD_NO = ?) AND BUYER = ?)
+		                                      OR (SELLER = ? AND BUYER = (SELECT BOARD_WRITER
+		                                                                   FROM BOARD
+		                                                                   WHERE BOARD_NO = ?))), ?, (SELECT CASE WHEN SELLER = ? THEN BUYER
+		                                                                                                         WHEN BUYER = ? THEN SELLER
+		                                                                                                         END RECEIVER
+		                                                                                                FROM CHATROOM
+		                                                                                               WHERE CR_NO = (SELECT CR_NO 
+		                                                                                                               FROM CHATROOM
+		                                                                                                               WHERE (SELLER = (SELECT BOARD_WRITER
+		                                                                                                                               FROM BOARD
+		                                                                                                                               WHERE BOARD_NO = ?) AND BUYER = ?)
+		                                                                                                                  OR (SELLER = ? AND BUYER = (SELECT BOARD_WRITER
+		                                                                                                                                               FROM BOARD
+		                                                                                                                                               WHERE BOARD_NO = ?)))), ?)
+	</entry>
+	<entry key="readMessageForBuyer">
+		SELECT M_CONTENT, SENDER, RECEIVER
+		FROM MESSAGE
+		WHERE CR_NO = (SELECT CR_NO
+		               FROM CHATROOM
+		               WHERE (SELLER = (SELECT BOARD_WRITER
+		                               FROM BOARD
+		                               WHERE BOARD_NO = ?) AND BUYER = ?)
+		                  OR (SELLER = ? AND BUYER = (SELECT BOARD_WRITER
+		                                               FROM BOARD
+		                                               WHERE BOARD_NO = ?))
+		                )
+		  AND (SENDER = ? OR RECEIVER = ?)
+		ORDER BY CREATE_DATE
+	</entry>
+	
+	<entry key="selectChatList">
+		SELECT CR_NO, CREATE_DATE, M1.USER_NICKNAME AS SELLER , M2.USER_NICKNAME AS BUYER
+		FROM CHATROOM C
+		JOIN MEMBER M1 ON (SELLER = M1.USER_NO)
+		JOIN MEMBER M2 ON (BUYER = M2.USER_NO)
+		WHERE (SELLER = ? OR BUYER = ?)
+		  AND C.STATUS = 'Y'
+	</entry>
+	<entry key = "selectRecentMsg2">
+		SELECT M_CONTENT
+		FROM (SELECT M_CONTENT, ROW_NUMBER() OVER(PARTITION BY CR_NO ORDER BY CREATE_DATE DESC) AS RN
+		        FROM MESSAGE
+		      WHERE CR_NO = ?)
+		WHERE RN = 1
+	</entry>
+	<entry key="readMessage2">
+		SELECT M_CONTENT, SENDER, RECEIVER
+		FROM MESSAGE
+		WHERE CR_NO = ?
+		  AND (SENDER = ? OR RECEIVER = ?)
+		ORDER BY CREATE_DATE
+	</entry>
+	<entry key="insertMessage2">
+		INSERT INTO MESSAGE(MESSAGE_NO, CREATE_DATE, CR_NO, SENDER, RECEIVER, M_CONTENT)
+		VALUES (SEQ_MNO.NEXTVAL, SYSDATE, ?, ?, (SELECT CASE WHEN SELLER = ? THEN BUYER
+                                                             WHEN BUYER = ? THEN SELLER
+                                                             END RECEIVER
+                                                    FROM CHATROOM
+                                                   WHERE CR_NO = ?), ?)
+	</entry>
+	
+	<entry key="checkMessage">
+		UPDATE MESSAGE
+	    SET M_CHECK = 'Y'
+	    WHERE CR_NO = ?
+	      AND RECEIVER = ?
+	</entry>
+	
+	<!-- 챗봇용 -->
+	<entry key="selectChatroom">
+		SELECT CR_NO
+		FROM CHATROOM
+		WHERE BUYER = ? AND SELLER = 2
+	</entry>
+	
+	<entry key="insertChatBot">
+		INSERT INTO CHATROOM (CR_NO, CREATE_DATE, STATUS, SELLER, BUYER)
+		VALUES (SEQ_CNO.NEXTVAL, SYSDATE, 'Y', 2, ?)
+	</entry>
+	
+	<entry key="readChatbot">
+		SELECT M_CONTENT, SENDER, RECEIVER
+		FROM MESSAGE
+		WHERE CR_NO = (SELECT CR_NO
+		               FROM CHATROOM
+		               WHERE BUYER = ? AND SELLER = 2)
+                         AND (SENDER = ? AND RECEIVER = 2)
+		ORDER BY CREATE_DATE
+	</entry>
+	<entry key="insertChatMessage">
+		INSERT INTO MESSAGE(MESSAGE_NO, CREATE_DATE, CR_NO, SENDER, RECEIVER, M_CONTENT)
+		VALUES (SEQ_MNO.NEXTVAL, SYSDATE, (SELECT CR_NO 
+		                                   FROM CHATROOM
+		                                   WHERE BUYER = ?
+		                                      AND SELLER = 2), ?, 2, ?)
+	</entry>
+	
+	<entry key="adminChatList">
+		SELECT CR_NO, CREATE_DATE, M1.USER_NICKNAME AS SELLER , M2.USER_NICKNAME AS BUYER
+		FROM CHATROOM C
+		JOIN MEMBER M1 ON (SELLER = M1.USER_NO)
+		JOIN MEMBER M2 ON (BUYER = M2.USER_NO)
+		WHERE SELLER = 2
+	      AND C.STATUS = 'Y'
+	</entry>
+	
+	<entry key="selectAdminMsg">
+		SELECT M_CONTENT
+		FROM (SELECT M_CONTENT, ROW_NUMBER() OVER(PARTITION BY CR_NO ORDER BY CREATE_DATE DESC) AS RN
+		        FROM MESSAGE
+		      WHERE CR_NO = ?)
+		WHERE RN = 1
+	</entry>
+	
+	
+	<entry key="insertChatMessage2">
+		INSERT INTO MESSAGE(MESSAGE_NO, CREATE_DATE, CR_NO, SENDER, RECEIVER, M_CONTENT)
+		VALUES (SEQ_MNO.NEXTVAL, SYSDATE, ?, ?, (SELECT CASE WHEN SELLER = ? THEN BUYER
+                                                             WHEN BUYER = ? THEN SELLER
+                                                             END RECEIVER
+                                                    FROM CHATROOM
+                                                   WHERE CR_NO = ?), ?)
+	</entry>
+	
+	
+	<entry key="readChatbot2">
+		SELECT M_CONTENT, SENDER, RECEIVER
+		FROM MESSAGE
+		WHERE CR_NO = ?
+		  AND (SENDER = ? OR RECEIVER = ?)
+		ORDER BY CREATE_DATE
+	
+	</entry>
+	
+	<entry key="userChatList">
+		SELECT CR_NO, CREATE_DATE, M1.USER_NICKNAME AS SELLER , M2.USER_NICKNAME AS BUYER
+		FROM CHATROOM C
+		JOIN MEMBER M1 ON (SELLER = M1.USER_NO)
+		JOIN MEMBER M2 ON (BUYER = M2.USER_NO)
+		WHERE SELLER = ? 
+	      AND C.STATUS = 'Y'	
+	</entry>
+	
+	<entry key="selectRecentMsg3">
+			SELECT M_CONTENT
+		FROM (SELECT M_CONTENT, ROW_NUMBER() OVER(PARTITION BY CR_NO ORDER BY CREATE_DATE DESC) AS RN
+		      FROM MESSAGE
+		      WHERE CR_NO = ?)
+		WHERE RN = 1
+	</entry>
+	
+</properties>

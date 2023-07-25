@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectNoticeList">
+		SELECT *
+		FROM (
+			SELECT ROWNUM RNUM, BOARD_NO, BOARD_TITLE, USER_NAME, COUNT, CREATE_DATE
+            FROM BOARD B
+            JOIN MEMBER M ON(BOARD_WRITER = USER_NO)
+            WHERE B.STATUS = 'Y' AND BOARD_TYPE = 4
+            ORDER BY BOARD_NO
+			) A	
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="selectNoticeListCount">
+		SELECT COUNT(*) AS COUNT 
+		FROM BOARD
+		WHERE STATUS = 'Y' AND BOARD_TYPE = 4 
+	</entry>
+
+	<entry key="insertNotice">
+		INSERT INTO BOARD
+		(
+			BOARD_NO,
+			BOARD_TYPE,
+			BOARD_TITLE,
+			BOARD_CONTENT,
+			BOARD_WRITER,
+			CREATE_DATE,
+			STATUS
+		)
+		VALUES
+		(
+			SEQ_BNO.NEXTVAL,
+			4,
+			?,
+			?,
+			?,
+			SYSDATE,
+			'Y'
+		)
+	</entry>
+	
+	<entry key="selectNoticeNo">
+		SELECT SEQ_BNO.CURRVAL AS BOARD_NO
+		FROM DUAL
+	</entry>
+	
+	<entry key="increaseCount">
+		UPDATE BOARD
+		SET COUNT = NVL(COUNT,0) + 1
+		WHERE BOARD_NO = ?
+		 AND STATUS = 'Y'
+		
+	</entry>
+	
+	<entry key="selectNotice">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, USER_NICKNAME, B.CREATE_DATE, COUNT
+		FROM BOARD B
+		JOIN MEMBER M ON (B.BOARD_WRITER = M.USER_NO)
+		WHERE BOARD_TYPE = 4 AND B.STATUS = 'Y' AND BOARD_NO = ?
+	</entry>
+	
+	<entry key="updateNotice">
+		UPDATE BOARD
+		SET BOARD_TITLE = ?,
+		    BOARD_CONTENT = ?
+		WHERE BOARD_NO = ? AND STATUS = 'Y' AND BOARD_TYPE = '4'
+	</entry>
+	
+	<entry key="deleteNotice">
+		UPDATE BOARD
+		SET STATUS = 'N'
+		WHERE BOARD_NO = ? AND BOARD_TYPE = '4'
+	</entry>
+	
+	<entry key="selectMainNotice">
+	
+		SELECT ROWNUM, BOARD_NO, BOARD_TITLE, CREATE_DATE
+		FROM (
+		    SELECT BOARD_NO, BOARD_TITLE, CREATE_DATE 
+		    FROM BOARD
+		    WHERE BOARD_TYPE = 4 AND STATUS='Y'
+		    ORDER BY CREATE_DATE DESC
+		) A
+		WHERE ROWNUM BETWEEN 1 AND 3
+	</entry>
+	
+	
+	<entry key="selectMainBoard">
+		SELECT BOARD_NO, FILE_PATH||CHANGE_NAME AS FILENAME
+		FROM BOARD B
+		LEFT JOIN ATTACHMENT AT ON(BOARD_NO = REF_BNO)
+		WHERE BOARD_TYPE = 1 and ORIGIN_NAME is not null AND ROWNUM BETWEEN  1 AND 5
+	</entry>
+		
+
+</properties>

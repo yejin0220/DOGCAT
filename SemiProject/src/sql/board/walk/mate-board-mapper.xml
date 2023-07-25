@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectListCount">
+		SELECT COUNT(*) AS COUNT
+		FROM BOARD
+		WHERE (BOARD_TYPE = 1) AND STATUS='Y'
+	</entry>
+	<entry key="selectMateList">
+		SELECT *
+		FROM(	
+			SELECT ROWNUM RNUM, A.*
+			FROM 
+				(SELECT BOARD_NO,
+						BOARD_TITLE,
+						BOARD_CONTENT,
+						USER_NICKNAME,
+						B.ADDRESS,
+						B.CREATE_DATE,
+                        COUNT,
+                        (SELECT COUNT(*) FROM B_LIKE L WHERE L.BOARD_NO = B.BOARD_NO ) AS B_LIKE,
+                        (SELECT COUNT(*) FROM MATE A WHERE A.BOARD_NO = B.BOARD_NO AND A.STATUS=2 ) AS APPLY
+				FROM BOARD B
+				JOIN MEMBER ON (BOARD_WRITER = USER_NO)
+				WHERE BOARD_TYPE=1 AND B.STATUS='Y'
+				ORDER BY CREATE_DATE DESC
+				) A
+			)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="insertMateBoard">
+			INSERT INTO BOARD(BOARD_NO, BOARD_TYPE, BOARD_TITLE, BOARD_CONTENT, BOARD_WRITER, ADDRESS, LATITUDE, LONGITUDE, COUNT)
+			VALUES(SEQ_BNO.NEXTVAL, 1, ?,?,?,?,?,?,0)
+	</entry>
+	<entry key="insertAttachment">
+		INSERT INTO ATTACHMENT(FILE_NO, REF_BNO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, FILE_LEVEL)
+		VALUES(SEQ_FNO.NEXTVAL, SEQ_BNO.CURRVAL, ?,?,?,?)
+	</entry>
+	
+	<entry key="increaseCount">
+		UPDATE BOARD
+		SET COUNT = COUNT +1
+		WHERE BOARD_NO = ? AND STATUS='Y' 
+	</entry>
+	
+	<entry key="selectBoard">
+		SELECT BOARD_NO,
+			   B.ADDRESS,
+			   BOARD_TITLE,
+			   USER_NICKNAME,
+			   B.CREATE_DATE,
+			   BOARD_CONTENT,
+			   LATITUDE,
+			   LONGITUDE,
+			   COUNT
+		FROM BOARD B
+		JOIN MEMBER ON(BOARD_WRITER = USER_NO)
+		WHERE BOARD_NO = ? AND B.STATUS = 'Y'
+	</entry>
+	<entry key="selectAttachment">
+		SELECT REF_BNO,
+			   FILE_NO,
+			   ORIGIN_NAME,
+			   CHANGE_NAME,
+			   FILE_PATH,
+			   FILE_LEVEL
+		FROM ATTACHMENT
+		WHERE REF_BNO = ? AND STATUS='Y'
+	</entry>
+	<entry key="updateBoard">
+		UPDATE BOARD
+		SET BOARD_TITLE =?,
+			ADDRESS = ?,
+		    BOARD_CONTENT = ?,
+		    LATITUDE = ?,
+		    LONGITUDE = ?
+		WHERE BOARD_NO = ? AND STATUS= 'Y'   
+	</entry>
+	<entry key="updateAttachment">
+		INSERT INTO ATTACHMENT(FILE_NO, REF_BNO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, FILE_LEVEL)
+		VALUES (SEQ_FNO.NEXTVAL, ?, ?, ?, ?, ?)
+	</entry>
+	<entry key="updateAttachmentDelete">
+		UPDATE ATTACHMENT
+		SET STATUS = 'N'
+		WHERE FILE_NO = ?
+	</entry>
+	<entry key="insertReply">
+		INSERT INTO REPLY(REPLY_NO, REF_BNO, REPLY_WRITER,REPLY_CONTENT)
+		VALUES(SEQ_RNO.NEXTVAL,?,?,?) 
+	</entry>
+	<entry key="selectReplyList">
+		SELECT *
+        FROM (SELECT REPLY.*, USER_NICKNAME, USER_ID
+              FROM REPLY
+              JOIN MEMBER ON(REPLY_WRITER = USER_NO)
+              )
+        WHERE REF_BNO = ? AND STATUS='Y'
+        ORDER BY CREATE_DATE DESC
+	</entry>
+	<entry key="insertRecommend">
+		INSERT INTO B_LIKE(BOARD_NO, USER_NO)
+		VALUES(?,?)
+	</entry>
+	<entry key ="selectRecommend">
+		SELECT COUNT(*) AS COUNT
+		FROM B_LIKE
+		WHERE USER_NO =? AND BOARD_NO =?
+		
+	</entry>
+	<entry key="deleteRecommend">
+		DELETE FROM B_LIKE
+		WHERE BOARD_NO = ? AND USER_NO =?
+	</entry>
+	<entry key="selectRecommendCount">
+		SELECT COUNT(*) AS COUNT
+		FROM B_LIKE
+		WHERE BOARD_NO =?
+	</entry>
+	<entry key="deleteMate">
+		UPDATE BOARD
+		SET STATUS='N'
+		WHERE BOARD_NO= ? AND BOARD_WRITER=?
+	</entry>
+	<entry key="deleteAttachment">
+		UPDATE ATTACHMENT
+		SET STATUS='N'
+		WHERE REF_BNO=?
+	</entry>
+		<entry key="deleteReply">
+		UPDATE Reply
+		SET STATUS='N'
+		WHERE REF_BNO=?
+	</entry>
+	<entry key="deleteDetailReply">
+		UPDATE REPLY
+		SET STATUS='N'
+		WHERE REPLY_NO = ? 
+	</entry>
+	<entry key="applyMate">
+		INSERT INTO MATE(USER_NO, BOARD_NO, STATUS)
+		VALUES(?,?,1)
+	</entry>
+	<entry key="searchMateList">
+	   SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, USER_NICKNAME, B.ADDRESS, B.CREATE_DATE, COUNT,  (SELECT COUNT(*) FROM B_LIKE L WHERE L.BOARD_NO = B.BOARD_NO )  AS B_LIKE
+       FROM BOARD B
+       JOIN MEMBER ON (BOARD_WRITER = USER_NO)
+       WHERE BOARD_TYPE=1 AND B.STATUS='Y' AND B.ADDRESS=?
+      ORDER BY CREATE_DATE DESC
+	</entry>
+	<entry key="selectMateMember">
+		SELECT A.USER_NO AS USER_NO, A.BOARD_NO AS BOARD_NO ,A.STATUS AS STATUS ,M.USER_NICKNAME AS USER_NICKNAME
+		FROM MATE A
+		JOIN MEMBER M ON(A.USER_NO = M.USER_NO)
+		WHERE A.USER_NO=? AND BOARD_NO =?
+	</entry>
+</properties>

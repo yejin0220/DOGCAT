@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.all {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
+
+.search_Id_all {
+	width: 1350px;
+	margin: 0 auto;
+}
+
+.search_Id_Container {
+	padding: 30px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	max-width: 500px;
+	margin-left: 404px;
+}
+
+.search_Id_Container h1 {
+	font-size: 24px;
+	margin: 0 0 20px;
+	text-align: start;
+}
+
+.search_Id_Container label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.search_Id_Container input[type="text"], input[type="password"] {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid rgba(224, 224, 224, 0.34);
+	width: 95%;
+	margin-bottom: 20px;
+	background-color: rgba(224, 224, 224, 0.34);
+}
+
+#searchBtn {
+	background-color: rgba(52, 152, 219, 0.84); /* 파란색 */
+	border: none;
+	color: #fff;
+	padding: 12px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 100%;
+}
+
+#btnLogin {
+	background-color: rgba(52, 152, 219, 0.84); /* 파란색 */
+	border: none;
+	color: #fff;
+	padding: 12px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 100%;
+}
+
+#btnback #btnjoin {
+	background-color: rgba(52, 152, 219, 0.84); /* 파란색 */
+	border: none;
+	color: #fff;
+	padding: 12px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 40%;
+}
+
+.search_logo {
+	margin-left: 536px;
+	width: 300px;
+	margin-bottom: 50px;
+}
+
+.found-login {
+	display: flex;
+	justify-content: space-around;
+}
+
+input:focus {
+	outline: none;
+}

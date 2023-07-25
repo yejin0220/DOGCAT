@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+#enroll_sub .enroll_sub_in #enroll_content {
+	position: relative;
+	width: 1350px;
+	margin: 0 auto;
+}
+
+.enroll_sub_left {
+	width: 100%;
+	float: left;
+}
+
+.enroll_sub_left .enroll_sub_top2 {
+	width: 100%;
+}
+
+.enroll_sub_left .enroll_sub_top2 .enroll_tit {
+	height: 45px;
+}
+
+.enroll_sub_left .enroll_sub_top2 .enroll_tit .enroll_sub_tit1 {
+	font-size: 1.1rem;
+	color: #808080;
+	float: left;
+	font-weight: 700;
+	line-height: 45px;
+}
+
+.enroll_sub_left .enroll_sub_contents {
+	border-top: 1px solid #777;
+	position: relative;
+}
+
+.enroll_main p, div {
+	letter-spacing: -0.3px;
+}
+
+.enroll_main {
+	width: 100%;
+	margin-top: 40px;
+	border: 1px solid #999;
+}
+
+.enroll_main table {
+	border-collapse: collapse;
+}
+
+.enroll_main tr {
+	width: 100%;
+	font-size: 1;
+	border-bottom: 1px solid #999;
+}
+
+.enroll_main tr th {
+	width: 20%;
+	font-size: .85rem;
+	line-height: 1.4rem;
+	background-color: rgba(41, 128, 185, 0.45);
+	text-align: center;
+}
+
+.enroll_main tr td {
+	width: 80%;
+	font-size: .85rem;
+	line-height: 1.4rem;
+	padding: 20px;
+}
+
+.enroll_main td {
+	vertical-align: middle;
+}
+
+.enroll_main input[type=button] {
+	border: 1px solid #999;
+	display: inline-block;
+	background-color: #ddd;
+	text-align: center;
+	font-size: .75rem;
+	line-height: 20px;
+	height: 20px;
+	padding: 0 5px;
+	margin-left: 10px;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+a:link {
+	text-decoration: none;
+	color: #111;
+}
+
+.enroll_main tr td span {
+	margin-left: 30px;
+	font-size: .75rem;
+	display: inline-block;
+}
+
+.enroll_main input {
+	vertical-align: top;
+}
+
+.enroll_main tr td p {
+	display: inline-block;
+	margin-left: 5px;
+	font-size: .75rem;
+	line-height: 20px;
+	vertical-align: top;
+}
+
+.enroll_btn {
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	margin-top: 30px;
+}
+
+.enroll_btn button {
+	display: inline-block;
+	width: 100px;
+	height: 35px;
+	line-height: 30px;
+	text-align: center;
+	font-size: .8rem;
+	border-radius: 10px;
+	border: none;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+}
+
+.enroll_main tr td span {
+	margin-left: 30px;
+	font-size: .75rem;
+	display: inline-block;
+}
+
+input:focus {
+	outline: none;
+}

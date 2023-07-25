@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	
+	<entry key="updatePet">
+		UPDATE PET
+		SET SPECIES = ?
+		WHERE USER_NO = ?
+	</entry>
+
+	<entry key="selectPet">
+		SELECT SPECIES
+		FROM PET
+		WHERE USER_NO = ?
+	</entry>
+
+</properties>
