@@ -15,28 +15,28 @@
 * 주요기능
 
 ---
-<h2>기획의도</h2>
+## 기획의도
 <div>
   <img width="704" alt="기획의도" src="https://github.com/yejin0220/DOGCAT/assets/117423376/df33cb74-7f78-42d1-b52d-2cfa8cab5c73">
 </div>
 
-<h2>유사사이트 분석</h2>
+## 유사사이트 분석
 <div>
   <img width="698" alt="유사사이트분석" src="https://github.com/yejin0220/DOGCAT/assets/117423376/44991a5a-e2da-4d61-8691-4ee1908a0755">
 </div>
 
-<h2>개발환경</h2>
+## 개발환경
 <div>
   <img width="700" alt="개발환경" src="https://github.com/yejin0220/DOGCAT/assets/117423376/c2ed8ac6-e54b-4d33-8c6a-d8430e8de55e">
 </div>
 
-<h2>주요기능</h2>
+## 주요기능
   - 메인페이지
   - 로그인페이지
   - 산책메이트 페이지
   - 멍냥수다 페이지
   - 중고거래 페이지
-  - 
+  
 
 
 
