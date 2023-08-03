@@ -126,7 +126,7 @@
   <summary>게시글 작성</summary>
   <div markdown="1">
 
-![멍냥수다 게시글작성](https://github.com/yejin0220/DOGCAT/assets/117423376/0198bb47-1862-4a8e-8614-11647b851e3b)
+![멍냥수다 게시글작성2](https://github.com/yejin0220/DOGCAT/assets/117423376/3db31c15-d6b0-4915-8b20-127b178f8119)
 
   </div>
 </details>
@@ -148,6 +148,66 @@
 </details>
 <hr>
 <h4>중고거래 게시판</h4>
+<details>
+  <summary>게시글 작성</summary>
+  <div markdown="1">
+
+![나눔거래 작성](https://github.com/yejin0220/DOGCAT/assets/117423376/de3a2ce9-e225-46c5-96af-19925da19698)
+
+  </div>
+</details>
+<details>
+  <summary>게시글 디테일</summary>
+  <div markdown="1">
+
+![나눔거래 디테일](https://github.com/yejin0220/DOGCAT/assets/117423376/0bae27cb-352d-4f2d-a8fd-41c9e0dad8f7)
+
+
+  </div>
+</details>
+<hr>
+
+<h4>마이페이지</h4>
+<details>
+  <summary>프로필 변경</summary>
+  <div markdown="1">
+
+![마이페이지 프로필변경](https://github.com/yejin0220/DOGCAT/assets/117423376/f11b9e13-13ad-4907-9e4e-32aca920cf71)
+
+  </div>
+</details>
+<details>
+  <summary>작성 게시글 목록</summary>
+  <div markdown="1">
+
+![마이페이지 - 글 목록 확인](https://github.com/yejin0220/DOGCAT/assets/117423376/88432306-75b7-4c7d-a2c2-dfadc36c35db)
+
+  </div>
+</details>
+<details>
+  <summary>작성 댓글 목록</summary>
+  <div markdown="1">
+
+![마이페이지 댓글목록](https://github.com/yejin0220/DOGCAT/assets/117423376/8c71a6a7-5c50-4b1b-aaab-6112d8297668)
+
+  </div>
+</details>
+<details>
+  <summary>채팅 목록</summary>
+  <div markdown="1">
+
+![마이페이지 채팅목록](https://github.com/yejin0220/DOGCAT/assets/117423376/d836e0ee-0e4f-441d-a4d9-d40e407537bc)
+
+  </div>
+</details>
+<details>
+  <summary>산책메이트 신청 목록</summary>
+  <div markdown="1">
+
+![마이페이지 산책신청](https://github.com/yejin0220/DOGCAT/assets/117423376/98d9a981-fd84-4078-a7b5-ee54cdc1c756)
+
+  </div>
+</details>
 
 
 
