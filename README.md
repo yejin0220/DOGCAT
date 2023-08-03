@@ -13,7 +13,6 @@
 ### 목차
 * 기획의도
 * 유사사이트 분석
-* 유스케이스 다이어그램
 * ERD
 * 개발환경
 * 주요기능
@@ -34,6 +33,12 @@
 ## 유사사이트 분석
 <div>
   <img width="698" alt="유사사이트분석" src="https://github.com/yejin0220/DOGCAT/assets/117423376/44991a5a-e2da-4d61-8691-4ee1908a0755">
+</div>
+<hr>
+
+## ERD
+<div>
+  ![erd](https://github.com/yejin0220/DOGCAT/assets/117423376/19dec965-b47b-43f8-b433-4ad6f1fd00b2)
 </div>
 <hr>
 
@@ -59,6 +64,9 @@
 <details>
   <summary>회원가입</summary>
   <div markdown="1">
+
+![회원가입](https://github.com/yejin0220/DOGCAT/assets/117423376/1253a16e-7b32-4892-bd3b-f54d381cbecd)
+    
   </div>
 </details>
 <details>
@@ -66,6 +74,22 @@
   <div markdown="1">
 
 ![로그인 로그아웃](https://github.com/yejin0220/DOGCAT/assets/117423376/11879f3b-2eef-4942-9b4a-4b4b71dd85a3)
+
+  </div>
+</details>
+<details>
+  <summary>아이디 찾기</summary>
+  <div markdown="1">
+
+![아이디찾기](https://github.com/yejin0220/DOGCAT/assets/117423376/6c6a2076-f8d7-48a4-8777-e7e479c8807d)
+
+  </div>
+</details>
+<details>
+  <summary>비밀번호찾기</summary>
+  <div markdown="1">
+
+![비밀번호찾기](https://github.com/yejin0220/DOGCAT/assets/117423376/e25c1fe9-4436-49cd-bed9-2d03c2bd3a12)
 
   </div>
 </details>
