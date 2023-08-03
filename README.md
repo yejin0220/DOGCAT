@@ -1,4 +1,4 @@
-## DOGCAT 프로젝트
+![logo2](https://github.com/yejin0220/DOGCAT/assets/117423376/09c42c56-171a-436e-8280-e3a2f420c37c)## DOGCAT 프로젝트
 <div>
 
 ![또오개냥 로고](https://github.com/yejin0220/DOGCAT/assets/117423376/58254853-01e2-47ef-8360-c82b66f280aa)
@@ -52,6 +52,71 @@
 
   </div>
 </details>
+<hr>
+
+<h4>로그인페이지</h4>
+<details>
+  <summary>회원가입</summary>
+  <div markdown="1">
+  </div>
+</details>
+<details>
+  <summary>로그인/로그아웃</summary>
+  <div markdown="1">
+
+![로그인 로그아웃](https://github.com/yejin0220/DOGCAT/assets/117423376/11879f3b-2eef-4942-9b4a-4b4b71dd85a3)
+
+  </div>
+</details>
+<hr>
+
+<h4>산책메이트 게시판</h4>
+<details>
+  <summary>게시판 리스트</summary>
+  <div markdown="1">
+
+![산책 게시판리스트](https://github.com/yejin0220/DOGCAT/assets/117423376/719cccdc-1393-4be5-868d-d2ccde4f688d)
+
+  </div>
+</details>
+<details>
+  <summary>게시글 세</summary>
+  <div markdown="1">
+  </div>
+</details>
+<details>
+  <summary>게시글 작성</summary>
+  <div markdown="1">
+
+![산책메이트작성](https://github.com/yejin0220/DOGCAT/assets/117423376/fdd0a159-56ee-4d84-b141-71b8d87bea91)
+
+  </div>
+</details>
+<details>
+  <summary>댓글 작성</summary>
+  <div markdown="1">
+
+![산책메이트 댓글](https://github.com/yejin0220/DOGCAT/assets/117423376/7b82f6e6-c601-462e-8a8d-371217bdccd7)
+
+  </div>
+</details>
+<details>
+  <summary>게시글 추천</summary>
+  <div markdown="1">
+
+![산책메이트 추천](https://github.com/yejin0220/DOGCAT/assets/117423376/05b22117-b3c2-4242-952a-573696393634)
+
+  </div>
+</details>
+<details>
+  <summary>게시글 검색</summary>
+  <div markdown="1">
+
+![산책메이트 검색](https://github.com/yejin0220/DOGCAT/assets/117423376/d0eeebe7-a1bd-4534-8f98-09e2d9250590)
+
+  </div>
+</details>
+<hr>
   
 
 
