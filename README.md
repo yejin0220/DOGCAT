@@ -80,8 +80,11 @@
   </div>
 </details>
 <details>
-  <summary>게시글 세</summary>
+  <summary>게시글 상세</summary>
   <div markdown="1">
+
+![산책메이트 디테일](https://github.com/yejin0220/DOGCAT/assets/117423376/7ad0cf62-b05b-4ec2-b26e-72468f831abc)
+
   </div>
 </details>
 <details>
