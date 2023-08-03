@@ -1,4 +1,4 @@
-![logo2](https://github.com/yejin0220/DOGCAT/assets/117423376/09c42c56-171a-436e-8280-e3a2f420c37c)## DOGCAT 프로젝트
+## DOGCAT 프로젝트
 <div>
 
 ![또오개냥 로고](https://github.com/yejin0220/DOGCAT/assets/117423376/58254853-01e2-47ef-8360-c82b66f280aa)
