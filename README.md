@@ -120,7 +120,35 @@
   </div>
 </details>
 <hr>
-  
+
+<h4>멍냥수다 게시판</h4>
+<details>
+  <summary>게시글 작성</summary>
+  <div markdown="1">
+
+![멍냥수다 게시글작성](https://github.com/yejin0220/DOGCAT/assets/117423376/0198bb47-1862-4a8e-8614-11647b851e3b)
+
+  </div>
+</details>
+<details>
+  <summary>게시글 삭제</summary>
+  <div markdown="1">
+
+![멍냥수다 게시글삭제](https://github.com/yejin0220/DOGCAT/assets/117423376/ed1cc8ca-6bc8-4461-88ad-d607c2d4b066)
+
+  </div>
+</details>
+<details>
+  <summary>댓글 작성</summary>
+  <div markdown="1">
+
+![멍냥수다 댓글작성](https://github.com/yejin0220/DOGCAT/assets/117423376/7d2864c6-12aa-4eb5-be14-67cf13ad2df3)
+
+  </div>
+</details>
+<hr>
+<h4>중고거래 게시판</h4>
+
 
 
 
