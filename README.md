@@ -38,7 +38,9 @@
 
 ## ERD
 <div>
-  ![erd](https://github.com/yejin0220/DOGCAT/assets/117423376/19dec965-b47b-43f8-b433-4ad6f1fd00b2)
+
+![erd](https://github.com/yejin0220/DOGCAT/assets/117423376/88a99340-c105-442b-928d-34c3da94ae15)
+
 </div>
 <hr>
 
